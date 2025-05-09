@@ -1,0 +1,18 @@
+[project]
+name = "verifynd"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "crawl4ai>=0.6.2",
+    "duckduckgo-search>=8.0.1",
+    "fastapi>=0.115.12",
+    "langchain-community>=0.3.23",
+    "langchain-google-genai>=2.1.4",
+    "python-dotenv>=1.1.0",
+    "python-multipart>=0.0.20",
+    "tavily-python>=0.7.2",
+    "tool>=0.8.0",
+    "uvicorn>=0.34.2",
+]

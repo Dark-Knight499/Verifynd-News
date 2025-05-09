@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Verifynd - AI-powered News Verification</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='css/styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1><i class="fas fa-check-circle"></i> Verifynd</h1>
+                <p>AI-powered News Verification</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('root') }}" class="{% if current_page == 'home' %}active{% endif %}">Home</a></li>
+                    <li><a href="{{ url_for('about') }}" class="{% if current_page == 'about' %}active{% endif %}">About</a></li>
+                    <li><a href="{{ url_for('details') }}" class="{% if current_page == 'application_details' %}active{% endif %}">App Details</a></li>
+                    <li><a href="#contact">Contact</a></li> {# Points to contact section on the same page #}
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="page-content">
+                <div class="tab-header" style="margin-bottom: var(--space-xl); border-bottom: 1px solid var(--medium-gray); padding-bottom: var(--space-md);">
+                    <h2 style="font-size: var(--text-4xl); letter-spacing: -1.5px;">Championing Truth in the Digital Age</h2>
+                </div>
+
+                <article class="about-section">
+                    <h3>Our Mission</h3>
+                    <p>In an era of information overload, distinguishing credible news from misinformation is more challenging than ever. Verifynd is dedicated to empowering individuals with the tools and insights needed to navigate the complex media landscape. Our mission is to foster a more informed public discourse by providing transparent, AI-driven news verification and analysis, helping users to critically assess the information they consume and share.</p>
+                </article>
+
+                <article class="about-section">
+                    <h3>What We Do</h3>
+                    <p>Verifynd offers a suite of tools designed to bring clarity and context to news content:</p>
+                    <ul>
+                        <li><strong>Latest News Feed:</strong> Access a curated stream of current events, providing a starting point for your information journey. (Note: Functionality may depend on external news API availability and terms of service).</li>
+                        <li><strong>AI-Powered Summarization:</strong> Quickly grasp the essence of lengthy articles with concise, AI-generated summaries. Understand key takeaways without sifting through extensive text.</li>
+                        <li><strong>In-Depth Analysis:</strong> Submit a news URL or text for a comprehensive breakdown. Our AI analyzes various factors, potentially including source reputation (where available and applicable), sentiment, objectivity indicators, and the presence of verifiable claims. The goal is to highlight aspects that warrant further scrutiny or confirm elements of robust journalism.</li>
+                    </ul>
+                </article>
+                
+                <article class="about-section">
+                    <h3>Our Approach to Verification</h3>
+                    <p>Verifynd utilizes advanced Artificial Intelligence and Machine Learning models to process and analyze news content. We focus on:</p>
+                    <ul>
+                        <li><strong>Data-Driven Insights:</strong> Providing objective metrics and observable patterns within the content.</li>
+                        <li><strong>Contextual Understanding:</strong> Striving to understand the nuances of language and presentation.</li>
+                        <li><strong>Transparency:</strong> While the complexities of AI can be deep, we aim to be clear about what our tools analyze and the limitations inherent in any automated system.</li>
+                    </ul>
+                    <p>It's important to understand that Verifynd is a tool to aid your critical thinking, not replace it. We provide analytical insights, but the final judgment on the credibility and intent of any piece of information rests with you, the user.</p>
+                </article>
+
+                <article class="about-section">
+                    <h3>Why Trust Verifynd?</h3>
+                    <p>Our commitment is to you, the user seeking clarity. We strive for:</p>
+                    <ul>
+                        <li><strong>Objectivity:</strong> Our analytical models are designed to be impartial, focusing on the textual content and available metadata.</li>
+                        <li><strong>Empowerment:</strong> We believe in equipping users with information to make their own informed decisions, rather than dictating conclusions.</li>
+                        <li><strong>Continuous Improvement:</strong> The digital landscape and the nature of information are constantly evolving. We are committed to refining our tools and methodologies to meet these ongoing challenges.</li>
+                    </ul>
+                </article>
+
+                <article class="about-section">
+                    <h3>The Team Behind Verifynd</h3>
+                    <p>Verifynd is developed by a passionate group of technologists and information integrity advocates. We believe that access to reliable tools for news verification is crucial for a healthy society. Our expertise in AI, software development, and media analysis drives our efforts to build a platform that is both powerful and user-friendly.</p>
+                    <p><em>(This is a placeholder. You can replace this with more specific information about your team if you wish.)</em></p>
+                </article>
+
+                <article class="about-section" id="contact">
+                    <h3>Get in Touch</h3>
+                    <p>We value your feedback and are always looking for ways to improve Verifynd. If you have questions, suggestions, or would like to report an issue, please feel free to reach out.</p>
+                    <p><em>(Consider adding a contact email or a link to a feedback form here if you set one up.)</em></p>
+                    <p>For now, you can connect with the project on its development platform if applicable.</p>
+                </article>
+
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Verifynd - AI-powered News Verification</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', path='js/script.js') }}"></script> {# Include if you have global JS, or specific JS for this page #}
+</body>
+</html>
+
+<style>
+    .page-content {
+        background: var(--white);
+        padding: var(--space-xl);
+        border-radius: 6px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05), 0 1px 3px rgba(0,0,0,0.08);
+        border: 1px solid var(--medium-gray);
+    }
+    .about-section {
+        margin-bottom: var(--space-xl);
+    }
+    .about-section h3 {
+        font-family: var(--font-headline);
+        font-size: var(--text-2xl);
+        color: var(--rich-black-text);
+        margin-bottom: var(--space-md);
+        letter-spacing: -0.5px;
+        border-bottom: 1px solid var(--light-gray);
+        padding-bottom: var(--space-sm);
+    }
+    .about-section p, .about-section ul {
+        font-family: var(--font-body);
+        font-size: var(--text-base);
+        line-height: 1.8;
+        color: var(--dark-gray-text);
+        margin-bottom: var(--space-md);
+    }
+    .about-section ul {
+        list-style-position: outside;
+        padding-left: var(--space-lg);
+    }
+    .about-section ul li {
+        margin-bottom: var(--space-sm);
+    }
+    .about-section strong {
+        font-weight: 600;
+        color: var(--rich-black-text);
+    }
+</style>

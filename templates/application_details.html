@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Details - Verifynd</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='css/styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1><i class="fas fa-check-circle"></i> Verifynd</h1>
+                <p>AI-powered News Verification</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('root') }}" class="{% if current_page == 'home' %}active{% endif %}">Home</a></li>
+                    <li><a href="{{ url_for('about') }}" class="{% if current_page == 'about' %}active{% endif %}">About</a></li>
+                    <li><a href="{{ url_for('details') }}" class="{% if current_page == 'application_details' %}active{% endif %}">App Details</a></li>
+                    <li><a href="{{ url_for('about') }}#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="page-content">
+                <div class="tab-header" style="margin-bottom: var(--space-xl); border-bottom: 1px solid var(--medium-gray); padding-bottom: var(--space-md);">
+                    <h2 style="font-size: var(--text-4xl); letter-spacing: -1.5px;"><i class="fas fa-cogs" style="margin-right: var(--space-sm); color: var(--primary-color);"></i>Inside Verifynd: Tech & Structure</h2>
+                </div>
+
+                <article class="about-section">
+                    <h3><i class="fas fa-rocket" style="margin-right: var(--space-xs); color: var(--primary-dark);"></i>Overview</h3>
+                    <p>Verifynd is a web application designed to assist users in verifying the credibility of news articles and online content. It leverages Artificial Intelligence, specifically Large Language Models (LLMs), to provide summaries and analytical insights into the provided text or URL. The platform aims to promote media literacy and critical thinking in an age of rapid information dissemination.</p>
+                </article>
+
+                <article class="about-section">
+                    <h3><i class="fas fa-layer-group" style="margin-right: var(--space-xs); color: var(--primary-dark);"></i>Technology Stack</h3>
+                    <p>The platform is built with a modern Python-based stack:</p>
+                    <ul>
+                        <li><strong><i class="fas fa-server" style="margin-right: var(--space-xs);"></i>Backend:</strong>
+                            <ul>
+                                <li><strong>FastAPI:</strong> A high-performance Python web framework used for building the API endpoints that handle user requests, process data, and interact with the AI models.</li>
+                                <li><strong>Langchain:</strong> A framework for developing applications powered by language models. It's used here to integrate with Google's Generative AI models.</li>
+                                <li><strong>Google Generative AI (Gemini):</strong> The core LLM used for tasks like content analysis and summarization.</li>
+                                <li><strong>Uvicorn:</strong> An ASGI server used to run the FastAPI application.</li>
+                            </ul>
+                        </li>
+                        <li><strong><i class="fas fa-desktop" style="margin-right: var(--space-xs);"></i>Frontend:</strong>
+                            <ul>
+                                <li><strong>HTML5:</strong> For structuring the web pages.</li>
+                                <li><strong>CSS3:</strong> For styling the user interface, following a "Modern Editorial (NYT Inspired)" aesthetic.</li>
+                                <li><strong>JavaScript:</strong> For client-side interactivity, handling form submissions, tabbed navigation, and dynamically updating content without page reloads (AJAX).</li>
+                                <li><strong>Jinja2:</strong> A templating engine used with FastAPI to render dynamic HTML pages.</li>
+                            </ul>
+                        </li>
+                        <li><strong><i class="fas fa-tools" style="margin-right: var(--space-xs);"></i>Development & Others:</strong>
+                            <ul>
+                                <li><strong>Python:</strong> The primary programming language for the backend and AI integration.</li>
+                                <li><strong>Font Awesome:</strong> For scalable vector icons used throughout the interface.</li>
+                                <li><strong>JSON:</strong> Used for data storage (e.g., `latest_news.json`) and for data exchange between frontend and backend.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </article>
+                
+                <article class="about-section">
+                    <h3><i class="fas fa-sitemap" style="margin-right: var(--space-xs); color: var(--primary-dark);"></i>Application Structure</h3>
+                    <p>The project is organized into several key directories and files:</p>
+                    <ul>
+                        <li><code>app.py</code>: The main FastAPI application file. It defines API routes, handles requests, and integrates different modules.</li>
+                        <li><code>/templates/</code>: Contains HTML templates (<code>index.html</code>, <code>about.html</code>, <code>application_details.html</code>) rendered by Jinja2.</li>
+                        <li><code>/static/</code>: Holds static assets:
+                            <ul>
+                                <li><code>css/styles.css</code>: The primary stylesheet.</li>
+                                <li><code>js/script.js</code>: Client-side JavaScript for interactivity.</li>
+                                <li><code>img/</code>: For static images like placeholders.</li>
+                            </ul>
+                        </li>
+                        <li><code>config.py</code>: Manages configuration, such as API keys.</li>
+                        <li><code>verify.py</code>, <code>sumarize.py</code>, <code>latest_news.py</code>: Python modules containing the core logic for analysis, summarization, and fetching news, respectively. These interact with the LLM.</li>
+                        <li><code>/models/</code>: Contains Pydantic models (e.g., <code>news.py</code>, <code>search.py</code>) for data validation and structuring.</li>
+                        <li><code>/utils/</code>: Utility modules for tasks like web scraping (<code>scrape.py</code>) and defining prompts for the LLM (<code>prompts.py</code>).</li>
+                        <li><code>latest_news.json</code>: A JSON file used to cache the latest news articles fetched.</li>
+                    </ul>
+                </article>
+
+                <article class="about-section">
+                    <h3><i class="fas fa-cogs" style="margin-right: var(--space-xs); color: var(--primary-dark);"></i>How It Works</h3>
+                    <p>The general workflow of Verifynd involves these steps:</p>
+                    <ol>
+                        <li><strong>User Interaction:</strong> A user accesses the web interface and chooses an action:
+                            <ul>
+                                <li>Viewing latest news.</li>
+                                <li>Submitting a URL or text for summarization.</li>
+                                <li>Submitting a URL or text for analysis.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Frontend Request:</strong> JavaScript on the client-side captures the user's input and sends an asynchronous request (e.g., using <code>fetch</code> API) to the appropriate FastAPI backend endpoint.</li>
+                        <li><strong>Backend Processing (FastAPI):</strong>
+                            <ul>
+                                <li>The relevant endpoint in <code>app.py</code> receives the request.</li>
+                                <li>For actions involving external URLs (summarize, analyze URL, fetch news), utility functions (e.g., in <code>scrape.py</code>) might be used to retrieve the content from the web.</li>
+                                <li>The core logic modules (<code>verify.py</code>, <code>sumarize.py</code>, <code>latest_news.py</code>) are called. These modules often use Langchain to construct prompts (from <code>utils/prompts.py</code>) and send them to the Google Generative AI model.</li>
+                            </ul>
+                        </li>
+                        <li><strong>AI Model Interaction:</strong> The LLM processes the input and returns the generated text (summary, analysis, or structured news data).</li>
+                        <li><strong>Backend Response:</strong> FastAPI sends the processed information back to the frontend, typically as a JSON response.</li>
+                        <li><strong>Frontend Update:</strong> JavaScript receives the response and dynamically updates the relevant parts of the HTML page (e.g., displaying the summary, analysis metrics, or news cards) without requiring a full page reload.</li>
+                        <li><strong>News Caching:</strong> For "Latest News", fetched articles are stored in <code>latest_news.json</code> to reduce redundant API calls and speed up loading times on subsequent visits. A refresh mechanism allows updating this cache.</li>
+                    </ol>
+                </article>
+
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Verifynd - AI-powered News Verification</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', path='js/script.js') }}"></script>
+</body>
+</html>
+
+<style>
+    /* Styles specific to application_details.html, can be moved to styles.css */
+    .page-content {
+        background: var(--white);
+        padding: var(--space-xl);
+        border-radius: 6px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05), 0 1px 3px rgba(0,0,0,0.08);
+        border: 1px solid var(--medium-gray);
+    }
+    .about-section { /* Reusing .about-section styling from about.html for consistency */
+        margin-bottom: var(--space-xl);
+    }
+    .about-section h3 {
+        font-family: var(--font-headline);
+        font-size: var(--text-2xl);
+        color: var(--rich-black-text);
+        margin-bottom: var(--space-md);
+        letter-spacing: -0.5px;
+        border-bottom: 1px solid var(--light-gray);
+        padding-bottom: var(--space-sm);
+        display: flex;
+        align-items: center;
+    }
+    .about-section p, .about-section ul, .about-section ol {
+        font-family: var(--font-body);
+        font-size: var(--text-base);
+        line-height: 1.8;
+        color: var(--dark-gray-text);
+        margin-bottom: var(--space-md);
+    }
+    .about-section ul, .about-section ol {
+        list-style-position: outside;
+        padding-left: var(--space-lg); /* Default padding for lists */
+    }
+    .about-section ul ul, .about-section ol ul, .about-section ul ol, .about-section ol ol {
+        margin-top: var(--space-sm);
+        margin-bottom: var(--space-sm);
+        padding-left: var(--space-lg); /* Indent nested lists further */
+    }
+    .about-section ul li, .about-section ol li {
+        margin-bottom: var(--space-sm);
+    }
+    .about-section strong {
+        font-weight: 600;
+        color: var(--rich-black-text);
+    }
+    .about-section i { /* Icon styling within section content */
+        /* color: var(--primary-color); */ /* Optional: color all icons within text */
+        margin-right: var(--space-xs);
+    }
+</style>

@@ -47,7 +47,7 @@
 <tr>
   <td>
     <h3>🔬 Analyze News Content</h3>
-    <p>Perform in-depth analysis of news articles either by pasting text or providing a URL to verify authenticity.</p>
+    <p>Perform in-depth analysis of news or fake news detection either by pasting text or providing a URL to verify authenticity.</p>
   </td>
   <td>
     <img src="static/img/fake_news_analysis.png" alt="Analysis" width="100%">

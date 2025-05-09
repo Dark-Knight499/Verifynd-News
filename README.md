@@ -8,7 +8,7 @@
 > AI-powered news verification platform that helps combat misinformation by analyzing and summarizing news articles
 
 <p align="center">
-  <img src="static/img/fake_news_analysis.png" alt="Verifynd Analysis" width="600">
+  <img src="static/img/latest_news.png" alt="Verifynd Analysis" width="600">
 </p>
 
 ## 📋 Table of Contents

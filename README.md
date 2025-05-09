@@ -201,8 +201,9 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ---
 
 <p align="center">
-  <h2>📰 Verifynd - Verify and Find News 📰</h2>
+  <h3>📰 Verifynd - Verify and Find News 📰</h3>
 </p>
+---
 <p align="center">
   Made with ❤️ by <a href="https://github.com/Dark-knight499">Dark-Knight499</a>
 </p>

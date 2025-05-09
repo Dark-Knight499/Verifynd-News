@@ -1,158 +1,205 @@
-# Verifynd - AI-Powered News Verification
+# Verifynd <img src="static/img/fake_news_analysis.png" width="30" alt="Verifynd Logo">
 
-Verifynd is a FastAPI web application designed to help users verify the authenticity and reliability of news articles. It leverages AI to analyze news content from URLs or text, provide summaries, and fetch the latest news headlines.
+[![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)](https://fastapi.tiangolo.com/)
+[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![Gemini AI](https://img.shields.io/badge/Gemini_AI-8E75B2?style=for-the-badge&logo=google&logoColor=white)](https://ai.google.dev/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
-## Features
+> AI-powered news verification platform that helps combat misinformation by analyzing and summarizing news articles
 
-The application presents its core functionalities through an intuitive interface, visually highlighted by a carousel in the UI:
+<p align="center">
+  <img src="static/img/fake_news_analysis.png" alt="Verifynd Analysis" width="600">
+</p>
 
--   **Latest News (`latest_news.png`):** Stay informed with a constantly updated feed of the latest news articles.
--   **Summarize News (`url_summary.png`):** Quickly grasp the essence of any news article. Provide a URL, and the app delivers a concise summary.
--   **In-depth News Analysis (`fake_news_analysis.png`):**
-    -   **Analyze by Text:** Paste news text directly to receive a comprehensive breakdown.
-    -   **Analyze by URL:** Input a news article URL for a thorough examination.
-    -   The analysis covers key aspects such as accuracy, potential bias, source credibility, and the overall tone of the content.
--   **Responsive Design:** Enjoy a seamless experience across desktops, tablets, and mobile devices.
--   **Dynamic Content Loading:** Experience smooth interactions as news and analysis results are loaded asynchronously without page reloads.
+## 📋 Table of Contents
 
-## Tech Stack
+- [Features](#-features)
+- [Demo](#-demo)
+- [Tech Stack](#-tech-stack)
+- [Installation](#-installation)
+- [Usage](#-usage)
+- [API Reference](#-api-reference)
+- [Project Structure](#-project-structure)
+- [Contributing](#-contributing)
+- [License](#-license)
 
-- **Backend:**
-    - **Python:** Core programming language.
-    - **FastAPI:** Modern, fast (high-performance) web framework for building APIs.
-    - **Langchain:** Framework for developing applications powered by language models.
-    - **Google Generative AI (Gemini 1.5 Flash):** Language model for analysis and summarization.
-    - **Tavily AI:** Search API for gathering information.
-    - **Crawl4AI:** Library for crawling websites and extracting data for AI applications.
-    - **Uvicorn:** ASGI server for running FastAPI applications.
-- **Frontend:**
-    - **HTML5:** Standard markup language for creating web pages.
-    - **CSS3:** Styling language for designing the user interface.
-    - **JavaScript:** For client-side interactivity and API calls.
-    - **Jinja2:** Templating engine for rendering HTML pages with dynamic data.
-- **Static Files:** Served directly by FastAPI (CSS, JavaScript, Images).
-- **Data Storage:**
-    - `latest_news.json`: Stores the latest fetched news articles.
+## ✨ Features
 
-## Project Structure
+<table>
+<tr>
+  <td width="35%">
+    <h3>📰 Latest News</h3>
+    <p>Stay updated with recent news articles from trusted sources with one-click access to read or analyze any article.</p>
+  </td>
+  <td>
+    <img src="static/img/latest_news.png" alt="Latest News" width="100%">
+  </td>
+</tr>
+<tr>
+  <td>
+    <h3>📝 Summarize Articles</h3>
+    <p>Get concise summaries of any news article by simply providing the URL. Save time while staying informed.</p>
+  </td>
+  <td>
+    <img src="static/img/url_summary.png" alt="Summarize URL" width="100%">
+  </td>
+</tr>
+<tr>
+  <td>
+    <h3>🔬 Analyze News Content</h3>
+    <p>Perform in-depth analysis of news articles either by pasting text or providing a URL to verify authenticity.</p>
+  </td>
+  <td>
+    <img src="static/img/fake_news_analysis.png" alt="Analysis" width="100%">
+  </td>
+</tr>
+</table>
+
+### Analysis Metrics
+
+Our AI analyzes news content across multiple dimensions:
+
+- ✅ **Accuracy Score**: Evaluates factual accuracy on a scale of 1-10
+- ⚖️ **Bias Level**: Detects political or ideological bias
+- 🏛️ **Source Credibility**: Assesses publishing source reputation (1-10)
+- 🎭 **Tone Analysis**: Identifies the article's emotional tone
+- 🌟 **Overall Reliability**: Comprehensive trustworthiness rating (1-10)
+
+## 🚀 Demo
+
+*Coming soon! In the meantime, follow the installation instructions below to run Verifynd locally.*
+
+## 🛠️ Tech Stack
+
+### Backend
+- **[Python](https://www.python.org/)** - Core programming language
+- **[FastAPI](https://fastapi.tiangolo.com/)** - High-performance web framework
+- **[Langchain](https://python.langchain.com/docs/get_started)** - Framework for LLM application development
+- **[Google Generative AI (Gemini 1.5 Flash)](https://ai.google.dev/)** - Language model for analysis
+- **[Tavily AI](https://tavily.com/)** - Search API for gathering information
+- **[Crawl4AI](https://github.com/crawl4ai/crawl4ai)** - Advanced web crawling and content extraction
+- **[Uvicorn](https://www.uvicorn.org/)** - ASGI server for running the FastAPI application
+
+### Frontend
+- **HTML5/CSS3** - Modern web standards for structure and styling
+- **JavaScript** - Client-side interactivity and dynamic content loading
+- **[Jinja2](https://jinja.palletsprojects.com/)** - Templating engine for server-side rendering
+- **[Font Awesome](https://fontawesome.com/)** - Icon library for enhanced UI elements
+
+## 📦 Installation
+
+### Prerequisites
+
+- Python 3.10 or higher
+- `uv` package manager
+
+### Step-by-step Setup
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/YourUsername/Verifynd.git
+   cd Verifynd
+   ```
+
+2. **Create and activate a virtual environment**
+   ```bash
+   python -m venv venv
+   
+   # On Windows
+   .\venv\Scripts\activate
+   
+   # On macOS/Linux
+   source venv/bin/activate
+   ```
+
+3. **Install dependencies with uv**
+   ```bash
+   # Install uv if not already installed
+   pip install uv
+   
+   # Install project dependencies
+   uv pip sync
+   ```
+
+4. **Set up Crawl4AI**
+   ```bash
+   uv run crawl4ai-setup
+   ```
+
+5. **Configure environment variables**
+   
+   Create a `.env` file in the root directory with:
+   ```env
+   GOOGLE_API_KEY="YOUR_GOOGLE_API_KEY"
+   TAVILY_API_KEY="YOUR_TAVILY_API_KEY"
+   ```
+
+## 🖥️ Usage
+
+1. **Start the server**
+   ```bash
+   uv run app.py
+   ```
+
+2. **Access the application**
+   
+   Open your browser and navigate to:
+   ```
+   http://127.0.0.1:5000
+   ```
+
+3. **Using the application**
+
+   - **Latest News**: View and analyze recent news articles
+   - **Summarize**: Enter a URL to get a concise summary
+   - **Analyze**: Paste text or enter a URL for detailed analysis
+
+## 📚 API Reference
+
+| Endpoint | Method | Description | Request | Response |
+|----------|--------|-------------|---------|----------|
+| `/` | GET | Home page | - | HTML |
+| `/about` | GET | About page | - | HTML |
+| `/application-details` | GET | App details | - | HTML |
+| `/refresh-news` | POST | Update news | - | JSON (success status) |
+| `/analyze-text` | POST | Analyze text | Form: `query` | JSON (analysis results) |
+| `/analyze-url` | POST | Analyze URL | Form: `url` | JSON (analysis results) |
+| `/summarize-url` | POST | Summarize article | Form: `url` | JSON (summary) |
+
+## 📁 Project Structure
 
 ```
 Verifynd/
-├── app.py                  # Main FastAPI application file
-├── config.py               # Configuration (e.g., API keys)
-├── latest_news.json        # Stores latest news data
-├── latest_news.py          # Logic for fetching latest news
-├── sumarize.py             # Logic for summarizing news
-├── verify.py               # Logic for analyzing news
-├── README.md               # This file
-├── .env                    # Environment variables (API keys)
-├── pyproject.toml          # Project metadata and dependencies for Poetry (or similar)
-├── static/                 # Static assets (CSS, JS, images)
+├── app.py                  # Main FastAPI application
+├── config.py               # API keys and configuration
+├── latest_news.py          # News fetching functionality
+├── sumarize.py             # Article summarization
+├── verify.py               # News analysis and verification
+├── static/                 # Static assets
 │   ├── css/
-│   │   └── styles.css
 │   ├── js/
-│   │   └── script.js
-│   └── img/
-├── templates/              # HTML templates (Jinja2)
-│   ├── index.html
-│   ├── about.html
-│   └── application_details.html
-├── utils/                  # Utility modules
-│   ├── prompts.py          # Prompts for the LLM
-│   ├── scrape.py           # Web scraping utilities
-│   └── search.py           # Search utilities
-└── models/                 # Pydantic models for data validation
-    ├── news.py
-    └── search.py
+│   └── img/                # Feature screenshots and images
+├── templates/              # HTML templates
+├── utils/                  # Utility functions
+└── models/                 # Data models
 ```
 
-## Setup and Installation
+## 🤝 Contributing
 
-1.  **Clone the Repository:**
-    ```bash
-    git clone <repository-url>
-    cd Verifynd
-    ```
+Contributions are welcome! Here's how you can help improve Verifynd:
 
-2.  **Create a Virtual Environment:**
-    It's highly recommended to use a virtual environment to manage project dependencies.
-    ```bash
-    python -m venv venv
-    ```
-    Activate the virtual environment:
-    -   Windows:
-        ```bash
-        .\venv\Scripts\activate
-        ```
-    -   macOS/Linux:
-        ```bash
-        source venv/bin/activate
-        ```
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-3.  **Install Dependencies using UV:**
-    This project uses `uv` for package management, and dependencies are defined in `pyproject.toml`.
-    First, ensure you have `uv` installed. If not, you can install it via pip:
-    ```bash
-    pip install uv
-    ```
-    Once `uv` is installed, you can install the project dependencies:
-    ```bash
-    uv pip sync
-    ```
-    This command will install all dependencies specified in `pyproject.toml` and `uv.lock`.
+## 📄 License
 
-4.  **Setup Crawl4AI:**
-    After installing dependencies, run the Crawl4AI setup command:
-    ```bash
-    uv run crawl4ai-setup
-    ```
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-5.  **Set Up Environment Variables:**
-    Create a `.env` file in the root directory of the project and add your API keys:
-    ```env
-    GOOGLE_API_KEY="YOUR_GOOGLE_API_KEY"
-    TAVILY_API_KEY="YOUR_TAVILY_API_KEY"
-    ```
-    Replace `"YOUR_GOOGLE_API_KEY"` and `"YOUR_TAVILY_API_KEY"` with your actual API keys. The `GOOGLE_API_KEY` is for Google's Generative AI (Gemini) and `TAVILY_API_KEY` is for the Tavily search API.
+---
 
-## How to Run the Application
-
-1.  **Ensure your virtual environment is activated.**
-2.  **Navigate to the project's root directory.**
-3.  **Run the FastAPI application using Uvicorn:**
-    ```bash
-    uvicorn app:app --reload --port 5000
-    ```
-    -   `app:app`: Refers to the `app` instance of FastAPI in the `app.py` file.
-    -   `--reload`: Enables auto-reloading the server when code changes (useful for development).
-    -   `--port 5000`: Specifies the port to run the application on.
-
-4.  **Open your web browser and go to:** `http://127.0.0.1:5000`
-
-## API Endpoints
-
-The application exposes the following API endpoints:
-
--   **`GET /`**: Serves the main home page (`index.html`).
--   **`GET /about`**: Serves the about page (`about.html`).
--   **`GET /application-details`**: Serves the application details page (`application_details.html`).
--   **`POST /refresh-news`**: Refreshes the `latest_news.json` file with new articles.
-    -   **Request Body:** None
-    -   **Response:** JSON object indicating success or failure and the count of news items fetched.
--   **`POST /analyze-text`**: Analyzes user-provided text.
-    -   **Request Body (Form Data):** `query: str` (the text to analyze)
-    -   **Response:** JSON object containing the `NewsAnalysis` data.
--   **`POST /analyze-url`**: Analyzes news content from a given URL.
-    -   **Request Body (Form Data):** `url: str` (the URL of the news article)
-    -   **Response:** JSON object containing the `NewsAnalysis` data.
--   **`POST /summarize-url`**: Summarizes a news article from a given URL.
-    -   **Request Body (Form Data):** `url: str` (the URL of the news article)
-    -   **Response:** JSON object containing the summary.
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a pull request or open an issue for any bugs or feature requests.
-
-## License
-
-This project is licensed under the MIT License. See the `LICENSE` file for details (if applicable, otherwise state "To be added").
+<p align="center">
+  Made with ❤️ by <a href="https://github.com/Dark-knight499">Dark-Knight499</a>
+</p>
